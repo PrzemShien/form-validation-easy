@@ -1,1 +1,8 @@
 @import url(reset.css);
+@keyframes animacja {
+  25% {
+    opacity: 1; }
+  37% {
+    opacity: 0; } }
+
+/*# sourceMappingURL=style.css.map */
