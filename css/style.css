@@ -1,8 +1,26 @@
 @import url(reset.css);
-@keyframes animacja {
-  25% {
-    opacity: 1; }
-  37% {
-    opacity: 0; } }
+body {
+  box-sizing: border-box; }
+
+section {
+  background-color: #f2f2f2; }
+  section h5 {
+    font-size: 25px;
+    padding: 8px 20px; }
+  section input, section textarea {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px; }
+  section input:focus, section textarea:focus {
+    border: 2px solid lightblue; }
+  section span, section p {
+    padding: 2px 20px;
+    font-size: 18px; }
+  section textarea {
+    width: 300px;
+    margin: 10px; }
 
 /*# sourceMappingURL=style.css.map */
