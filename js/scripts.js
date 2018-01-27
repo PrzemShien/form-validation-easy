@@ -1,25 +1,59 @@
 'use strict';
 
+(function(){
 
+    function Validate(form, err){
+        this._form = document.querySelector(form) || document.querySelector('form');
+        this._error = document.querySelector(err) || document.querySelector('#err');
+    
+        this._assEven();
+    }
+    
+    Validate.prototype._assEven = function(){
+        this._form.addEventListener('submit', this._validateFields.bind(this), true);
+    }
+    
+    Validate.prototype._validateFields = function(e){
+        this._errors = [];
+        this._error.innerHTML = "";
+        console.log(e.target[0]);
+        
+        if (!e.target[0].value) {
+            this._addError('Uzupełnij pole email');
+        }
 
-
-var modal = document.querySelectorAll('.modal');
-console.log(modal);
-
-var img = document.querySelectorAll('.myImg');
-console.log(img);
-
-var modalImg = document.querySelectorAll('.modalImg');
-for(let i = 0; i < img.length; i ++){
-    img[i].addEventListener('click', function(){
-        modal[i].style.display = "block";
-        modalImg[i].src = this.src;
-    }, true);
-}
-
-var span = document.querySelectorAll('.close');
-for(let i = 0; i < span.length; i++){
-span[i].addEventListener('click', function(){
-    modal[i].style.display = "none";
-}, true);
-}
+        this._maiRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        if (e.target[0].value && !this._maiRegExp.test(e.target[0].value)) {
+            this._addError('Musi mieć znaki specjalne  @ i com lub pl');
+        }
+         if (!e.target[0].value) {
+            this._addError('Uzupełnij pole mail');
+        }
+         if (this._errors.length > 0) {
+            e.preventDefault();
+             
+        this._textErorer = 'Pojawiły się błędy ';
+             
+        if (this._errors > 1) {
+            this._textErorer = 'Pojawiły się błąd ';
+        }
+        
+    Validate.prototype._addError = function (err) {
+        this._errors.push(err);
+        this._show();
+    }
+    Validate.prototype._show = function () {
+        this._messageError = '';
+        for (let i in this._errors) {
+            this._messageError += `${this._errors[i]} <br> ${this._textErorer} <br>`;
+        }
+        this._textErorersdsf = (this._errors.length > 1) ? 'Wystąpił błąd ' : 'Wystąpił błędy ';
+        this._errorHTML.innerHTML = this._messageError;
+        console.log(this._textErorer);
+        console.log(this._textErorersdsf);
+    }
+    
+    new Validate();
+    
+})();
