@@ -1,0 +1,10 @@
+@import url(reset.css);
+@import 'mixins.scss';
+@import 'variables';
+
+
+@keyframes animacja {
+  25% {
+    opacity: 1; }
+  37% {
+    opacity: 0; } }
