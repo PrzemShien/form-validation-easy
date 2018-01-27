@@ -14,6 +14,7 @@
     }
     
     Validate.prototype._validateFields = function(e){
+        e.preventDefault();
         this._errors = [];
         this._error.innerHTML = "";
         console.log(e.target[0]);
@@ -31,13 +32,10 @@
             this._addError('Uzupełnij pole mail');
         }
          if (this._errors.length > 0) {
-            e.preventDefault();
-             
-        this._textErorer = 'Pojawiły się błędy ';
-             
-        if (this._errors > 1) {
-            this._textErorer = 'Pojawiły się błąd ';
-        }
+
+                this._textErorer = 'Pojawiły się błędy ';
+
+         }
         
     Validate.prototype._addError = function (err) {
         this._errors.push(err);
@@ -48,12 +46,11 @@
         for (let i in this._errors) {
             this._messageError += `${this._errors[i]} <br> ${this._textErorer} <br>`;
         }
-        this._textErorersdsf = (this._errors.length > 1) ? 'Wystąpił błąd ' : 'Wystąpił błędy ';
+        this._textErorer = (this._errors.length > 1) ? 'Wystąpił błąd ' : 'Wystąpił błędy ';
         this._errorHTML.innerHTML = this._messageError;
         console.log(this._textErorer);
-        console.log(this._textErorersdsf);
     }
-    
-    new Validate();
+    }
+    new Validate('form');
     
 })();
