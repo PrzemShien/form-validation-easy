@@ -2,9 +2,18 @@
 @import 'mixins.scss';
 @import 'variables';
 
+input{
+    width: $inputWidth;
+    padding: 12px 20px;
+    margin: 8px $margin;
+    box-sizing: border-box;
+}
 
-@keyframes animacja {
-  25% {
-    opacity: 1; }
-  37% {
-    opacity: 0; } }
+textarea{
+    width: $inputWidth;
+    margin: $margin;
+}
+
+form{
+    padding: 10px;
+}

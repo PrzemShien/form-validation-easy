@@ -1,1 +1,15 @@
 @import url(reset.css);
+input {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  box-sizing: border-box; }
+
+textarea {
+  width: 300px;
+  margin: 10px; }
+
+form {
+  padding: 10px; }
+
+/*# sourceMappingURL=style.css.map */

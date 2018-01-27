@@ -1,4 +1,4 @@
-@mixin flexBox($flex:flex, $wrap:wrap, $justify:center){
+@mixin input($flex:flex, $wrap:wrap, $justify:center){
     display: $flex;
     flex-wrap: $wrap;
     justify-content: $justify;
