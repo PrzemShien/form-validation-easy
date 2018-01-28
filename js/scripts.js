@@ -27,6 +27,11 @@ function formValidator(e){
     if(!testDate)   {tabSpan[1].innerText = "Niepoprawny format daty"}
     if(txtArea.length < 6){tabSpan[2].innerText = "Wpisano za mało znaków"}
     
-    if(testMAil && testDate && txtArea.length > 6){okMsg.innerText = "Dziękujemy, Twoja wiadomość została przesłana. Odpowiedź wyślemy na maila: " + eInp}
+    if(testMAil && testDate && txtArea.length > 6)
+    {okMsg.innerText = "Dziękujemy, Twoja wiadomość została przesłana. Odpowiedź wyślemy na maila: " + eInp
+    for(let i =0; i < tabSpan.length; i++){
+        tabSpan[i].innerText = "";
+    }
+    }
 }
 
